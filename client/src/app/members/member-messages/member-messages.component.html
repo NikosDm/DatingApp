@@ -11,11 +11,12 @@
       *ngIf="(messageService.messageThread$ | async)?.length > 0"
       class="chat"
     >
-      <li *ngFor="let message of messages">
+      <!-- prettier-ignore -->
+      <li *ngFor="let message of (messageService.messageThread$ | async)">
         <div>
           <span class="chat-img float-right">
             <img
-              src="{{ message.senderPhotUrl || './assets/user.png' }}"
+              src="{{ message.senderPhotoUrl || './assets/user.png' }}"
               alt="{{ message.senderUsername }}"
               class="rounded-circle"
             />
